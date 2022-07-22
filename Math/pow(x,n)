@@ -1,0 +1,16 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        # create a helper functiin and solve the problem using recursion
+        def helper(x,n):
+            # base cases
+            if x == 0: return 0
+            if n == 0: return 1
+            # solve the problem using divide and conquer approach
+            # divide the n value by 2
+            res = helper(x, n//2)
+            res = res * res
+            # if its an odd number, return the answer* x else otherwise
+            return x * res if n%2 else res
+        # finally return res if it x was a positive number else  1/res
+        res = helper(x, abs(n))
+        return res if n >= 0 else 1/res
