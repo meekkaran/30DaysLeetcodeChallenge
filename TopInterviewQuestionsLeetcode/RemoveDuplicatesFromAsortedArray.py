@@ -10,6 +10,18 @@ class Solution:
         nums[i] = nums[-1]
         return i + 1
 
+    
+  ###solution 2
+class Solution(object):
+    def removeDuplicates(self, nums):
+        #since we need o(1) space, use two pointers
+        #O(N) time and O(1) space
+        leftp = 1
+        for rightp in range(1, len(nums)):
+            if nums[rightp] != nums[rightp - 1]:
+                nums[leftp] = nums[rightp]
+                leftp += 1
+        return leftp
             
                 
 
